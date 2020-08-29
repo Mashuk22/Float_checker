@@ -9,7 +9,9 @@
     "content_scripts": [
         {
          "matches": [
-             "https://cs.money/"
+             "https://cs.money/",
+             "*://*.steamcommunity.com/market/listings/730/*",
+             "https://api.csgofloat.com/*"
          ],
          "js": ["jquery-3.5.1.min.js", "content.js"]
         }
@@ -17,7 +19,10 @@
     "background": {
         "scripts": ["background.js"]
     },
-    "permissions": ["https://cs.money/"],
+    "permissions": [
+      "tabs",
+      "activeTab"
+    ],
 	"icons": { "16": "calc.png",
                "48": "calc.png",
                "128": "calc.png" }
