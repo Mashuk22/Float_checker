@@ -15,7 +15,7 @@ def main():
 
 
 def html_get():
-    html = requests.get("https://steamcommunity.com/market/listings/730/AWP%20%7C%20Capillary%20%28Field-Tested%29").text
+    html = requests.get("https://steamcommunity.com/market/listings/730/M4A1-S%20%7C%20Decimator%20%28Field-Tested%29").text
     print('Запрос на сервер стим')
     return html
 
@@ -34,7 +34,6 @@ def get_currency():
     cur_dict = {'EUR': 1,
                 'TWD': 35,
                 'KZT': 500,
-                'UAH': 32.37,
                 }
     for i in cube[2:]:
         cur_dict.update({i.getAttribute("currency"): float(i.getAttribute("rate"))})
@@ -47,7 +46,7 @@ def is_in_steam_cur_mark(price):
                           '฿': 'THB', '₹': 'INR', 'NT$': 'TWD',
                           'Rp': 'INR', 'Rs': 'INR', '₪': 'ILS',
                           'TL': 'TRY', '₩': 'KRW', '₦': 'NGN',
-                          '₸': 'KZT', 'kr': 'SEK', '₴': 'UAH', }
+                          '₸': 'KZT', 'kr': 'SEK', }
         for k in steam_cur_mark:
             if k in price:
                 return steam_cur_mark[k]
@@ -82,5 +81,5 @@ def resault(floats, convert_prices):
         print(i+1, '   ', floats[i], '   ', convert_prices[i])
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
